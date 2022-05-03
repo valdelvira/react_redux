@@ -23,6 +23,9 @@ module.exports = {
         https: false
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.API_URL': JSON.stringify('http://localhost:3001')
+        }), // allows to use process.env.API_URL in code (instead of hardcoded url) 
         new HtmlWebpackPlugin({ // Create HTML file that includes references to bundled JS.
             template: 'src/index.html',
             favicon: 'src/favicon.ico'
